@@ -1,4 +1,4 @@
-package ben;
+package ben.OneDimensionDP;
 
 import org.junit.Test;
 
@@ -102,6 +102,7 @@ public class DecodeWays {
 
     @Test
     public void test() {
+        System.out.println(4%3);
         int result = new DecodeWays().numDecodings("1110");
         System.out.println(result);
     }
