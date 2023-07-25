@@ -118,17 +118,10 @@ public class Premium100 {
 
     @Test
     public void test() {
-//        for (int i = 0; i < 3; i++) {
-//            int randomInt = (int) Math.floor(Math.random() * (questions.size() + 1));
-//            String question = new Premium100().questions.get(randomInt);
-//            System.out.println(question);
-//        }
-        Queue<Integer> q = new ArrayDeque<>(3);
-        q.offer(1);
-        q.offer(2);
-        q.offer(3);
-        q.offer(4);
-        Assert.assertEquals(2, (long)q.poll());
-        q.size()
+        for (int i = 0; i < 3; i++) {
+            int randomInt = (int) Math.floor(Math.random() * (questions.size() + 1));
+            String question = new Premium100().questions.get(randomInt);
+            System.out.println(question);
+        }
     }
 }

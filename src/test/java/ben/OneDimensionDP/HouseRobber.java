@@ -1,4 +1,4 @@
-package ben;
+package ben.OneDimensionDP;
 
 import org.junit.Test;
 
