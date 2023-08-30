@@ -1,8 +1,6 @@
-package ben;
+package ben.TwoDimensionDP;
 
 import org.junit.Test;
-
-import java.util.Arrays;
 
 public class WordSearch {
     public boolean exist(char[][] board, String word) {

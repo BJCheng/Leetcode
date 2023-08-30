@@ -1,10 +1,10 @@
-package ben;
+package ben.TwoDimensionDP;
+
+import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
-import org.junit.Test;
 
 public class SubsetII {
     public List<List<Integer>> subsetsWithDup(int[] nums) {

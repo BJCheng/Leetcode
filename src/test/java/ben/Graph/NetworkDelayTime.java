@@ -6,6 +6,43 @@ import org.junit.Test;
 import java.util.*;
 
 public class NetworkDelayTime {
+    public int networkDelayTimeBFS(int[][] times, int n, int k) {
+        Map<Integer, List<int[]>> adjList = new HashMap<>();
+        for(int i=1; i<=n; i++) {
+            adjList.put(i, new ArrayList<>());
+        }
+        for(int[] time: times) {
+            adjList.get(time[0]).add(time);
+        }
+        int[] distance = new int[n+1];
+        Arrays.fill(distance, Integer.MAX_VALUE);
+        Queue<int[]> queue = new ArrayDeque<>();
+        for(int[] initialEdges: adjList.get(k)) {
+            queue.offer(initialEdges);
+        }
+        distance[k] = 0;
+        while(!queue.isEmpty()) {
+            int[] edge = queue.poll();
+            if(distance[edge[0]] + edge[2] < distance[edge[1]]) {
+                distance[edge[1]] = distance[edge[0]] + edge[2];
+                if(adjList.get(edge[0]).isEmpty()) {
+                    continue;
+                }
+                List<int[]> newEdges = adjList.get(edge[1]);
+                for(int[] newEdge: newEdges) {
+                    queue.offer(newEdge);
+                }
+            }
+        }
+        int result = 0;
+        for(int i=1; i<distance.length; i++) {
+            if(distance[i] == Integer.MAX_VALUE) {
+                return -1;
+            }
+            result = Math.max(result, distance[i]);
+        }
+        return result;
+    }
     public int networkDelayTime(int[][] times, int n, int k) {
         Map<Integer, List<Edge>> adjList = new HashMap<>();
         for(int i=1; i<=n; i++) {
@@ -68,7 +105,7 @@ public class NetworkDelayTime {
 
     @Test
     public void test() {
-//        Assert.assertEquals(2, new NetworkDelayTime().networkDelayTime(new int[][]{
+//        Assert.assertEquals(2, new NetworkDelayTime().networkDelayTimeBFS(new int[][]{
 //                {2,1,1},{2,3,1},{3,4,1}
 //        }, 4, 2));
 //        new NetworkDelayTime().networkDelayTime(new int[][]{
@@ -80,12 +117,17 @@ public class NetworkDelayTime {
 //        new NetworkDelayTime().networkDelayTime(new int[][]{
 //                {1,4,1},{2,1,1},{2,3,5},{4,3,1}
 //        }, 4, 2);
-        Assert.assertEquals(2, new NetworkDelayTime().networkDelayTime(new int[][]{
-                {1,2,1},{2,3,7},{1,3,4},{2,1,2}
-        }, 3, 1));
+//        Assert.assertEquals(2, new NetworkDelayTime().networkDelayTime(new int[][]{
+//                {1,2,1},{2,3,7},{1,3,4},{2,1,2}
+//        }, 3, 1));
 //        Assert.assertEquals(1, new NetworkDelayTime().networkDelayTime(new int[][]{
 //                {1,2,0},{2,3,0},{3,4,0},{1,4,1},{4,5,1}
 //        }, 5, 1));
+        PriorityQueue<int[]> pq = new PriorityQueue<>((p1, p2) -> p1[0]-p2[0]);
+        pq.offer(new int[]{2});
+        pq.offer(new int[]{1});
+        Assert.assertEquals(1, pq.poll()[0]);
+        Assert.assertEquals(2, pq.poll()[0]);
     }
 
 

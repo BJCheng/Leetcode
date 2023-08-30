@@ -1,4 +1,4 @@
-package ben;
+package ben.Backtrack;
 
 import org.junit.Test;
 import java.util.*;

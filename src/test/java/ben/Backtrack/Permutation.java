@@ -1,11 +1,11 @@
-package ben;
+package ben.Backtrack;
+
+import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-
-import org.junit.Test;
 
 public class Permutation {
     public List<List<Integer>> permute(int[] nums) {

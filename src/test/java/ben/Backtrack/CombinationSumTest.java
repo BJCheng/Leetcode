@@ -1,9 +1,9 @@
-package ben;
+package ben.Backtrack;
+
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import org.junit.jupiter.api.Test;
 
 class CombinationSumTest {
     public List<List<Integer>> combinationSum(int[] candidates, int target) {

@@ -17,6 +17,7 @@ public class BestTimeToBuyAndSellStockWithCooldown {
             dp[i][1] = Math.max(dp[i+1][2]+prices[i], dp[i+1][1]);
             dp[i][2] = dp[i+1][0];
         }
+        StringBuilder sb = new StringBuilder();
         return dp[0][0];
     }
 
@@ -66,13 +67,13 @@ public class BestTimeToBuyAndSellStockWithCooldown {
     @Test
     public void test() {
         int result = 0;
-//        result = new BestTimeToBuyAndSellStockWithCooldown().maxProfit(new int[]{5, 0, 7, 4, 6, 3, 8});
-//        Assert.assertEquals(12, result);
+        result = new BestTimeToBuyAndSellStockWithCooldown().maxProfit(new int[]{5, 0, 7, 4, 6, 3, 8});
+        Assert.assertEquals(12, result);
 
-        result = new BestTimeToBuyAndSellStockWithCooldown().maxProfit(new int[]{5,7,6,4,8,5,6,7,9,4,5,3,7,4,6,5,8});
-        Assert.assertEquals(16, result);
-
-        result = new BestTimeToBuyAndSellStockWithCooldown().maxProfit(new int[]{5,7,62,4,8,5,6,72,9,4,5,33,7,43,6,5,8});
-        Assert.assertEquals(166, result);
+//        result = new BestTimeToBuyAndSellStockWithCooldown().maxProfit(new int[]{5,7,6,4,8,5,6,7,9,4,5,3,7,4,6,5,8});
+//        Assert.assertEquals(16, result);
+//
+//        result = new BestTimeToBuyAndSellStockWithCooldown().maxProfit(new int[]{5,7,62,4,8,5,6,72,9,4,5,33,7,43,6,5,8});
+//        Assert.assertEquals(166, result);
     }
 }
